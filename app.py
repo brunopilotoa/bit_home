@@ -245,30 +245,27 @@ if uploaded_file is not None:
         fig_generic.add_vline(
             x=momento,
             line_width=3,
-                            line_dash="dash",
-                            line_color="red",
-                            label=dict(
-                            text='Perda de Tração'
+            line_dash="dash",
+            line_color="red",
+            label=dict(
+            text='Perda de Tração'
         )
         )
 
     
 
     #####
-
     st.subheader('Graficos Interativos')
-    # print(red_line)
     col1,col2=st.columns(2,gap='medium')
     with col1 :
         st.plotly_chart(fig_manifold)
         st.plotly_chart(fig_speed)
 
+        st.plotly_chart(fig_generic)
     #  st.plotly_chart(fig_rpm)
     with col2:
         st.plotly_chart(fig)
         st.plotly_chart(fig_altitude)
     #    st.write('Figura Base de Comparar')
-    
-    st.plotly_chart(fig_generic)
   
         # st.text('Fica Evidente Que a Variação do CHT é apenas Falha de Sensor')
