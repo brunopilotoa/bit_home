@@ -261,11 +261,11 @@ if uploaded_file is not None:
         st.plotly_chart(fig_manifold)
         st.plotly_chart(fig_speed)
 
-        st.plotly_chart(fig_generic)
     #  st.plotly_chart(fig_rpm)
     with col2:
+        st.plotly_chart(fig_generic)
         st.plotly_chart(fig)
-        st.plotly_chart(fig_altitude)
+        # st.plotly_chart(fig_altitude)
     #    st.write('Figura Base de Comparar')
   
         # st.text('Fica Evidente Que a Variação do CHT é apenas Falha de Sensor')
