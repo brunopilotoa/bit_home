@@ -264,7 +264,7 @@ if uploaded_file is not None:
     #  st.plotly_chart(fig_rpm)
     with col2:
         st.plotly_chart(fig)
-        st.plotly_chart(fig_generic)
+    st.plotly_chart(fig_generic)
         # st.plotly_chart(fig_altitude)
     #    st.write('Figura Base de Comparar')
   
