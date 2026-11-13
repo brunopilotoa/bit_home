@@ -67,8 +67,8 @@ if uploaded_file is not None:
             "Pressao Oleo Minima",
             f"{voo_ocorrencia['Oil Press (PSI)'].min():.0f} PSI",
             border=False,
-            delta=voo_ocorrencia["Oil Press (PSI)"].min()
-            - voo_ocorrencia["Oil Press (PSI)"].max(),
+            delta=voo_ocorrencia["Oil Press (PSI)"].max()
+            - voo_ocorrencia["Oil Press (PSI)"].min(),
         )
         # st.metric('Pressao Oleo Min',voo_ocorrencia['Oil Press (PSI)'].min(),border=True)
     with colu3:
@@ -180,21 +180,7 @@ if uploaded_file is not None:
         )
     ).update_layout(title="Velocidade Indicada", xaxis=dict(visible=False))
 
-    fig_generic = go.Figure()
-    fig_generic.add_trace(
-        go.Scatter(
-            x=voo_ocorrencia["UTC Time (hh:mm:ss)"],
-            y=voo_ocorrencia[value],
-            mode="lines",
-            name="CHT 1",
-        )
-    ).update_layout(
-        title=f"Valores  de {value}",
-        yaxis=dict(
-            title=" ",
-        ),
-        xaxis=dict(title="Tempo em Horário Z", visible=False),
-    ).update_traces(showlegend=False)
+    
 
     if red_line == True:
         fig_manifold.add_vline(
@@ -247,13 +233,7 @@ if uploaded_file is not None:
                 ),
             ),
         )
-        fig_generic.add_vline(
-            x=momento,
-            line_width=3,
-            line_dash="dash",
-            line_color="red",
-            label=dict(text="Perda de Tração"),
-        )
+       
 
     #####
     st.subheader("Graficos Interativos")
@@ -265,9 +245,27 @@ if uploaded_file is not None:
     #  st.plotly_chart(fig_rpm)
     with col2:
         st.plotly_chart(fig)
-    value = st.selectbox(
-            "Selecione o Parametro Para Comparacao", options=(df.columns)
-        )
+    fig_generic = go.Figure()
+    fig_generic.add_trace(
+            go.Scatter(
+                x=voo_ocorrencia["UTC Time (hh:mm:ss)"],
+                y=voo_ocorrencia[value],
+                mode="lines",
+                name="CHT 1",
+            )
+        ).update_layout(
+            title=f"Valores  de {value}",
+            yaxis=dict(
+                title=" ",
+            ),
+            xaxis=dict(title="Tempo em Horário Z", visible=False),
+        ).update_traces(showlegend=False).add_vline(
+                x=momento,
+                line_width=3,
+                line_dash="dash",
+                line_color="red",
+                label=dict(text="Perda de Tração"),
+            )
     st.plotly_chart(fig_generic)
         # st.plotly_chart(fig_altitude)
     #    st.write('Figura Base de Comparar')
