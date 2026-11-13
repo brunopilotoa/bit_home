@@ -224,15 +224,15 @@ if uploaded_file is not None:
                 text='Perda de Tração',
                 )
         )
-        fig_generic.add_vline(
-            x=momento,
-            line_width=3,
-                            line_dash="dash",
-                            line_color="red",
-                            label=dict(
-                            text='Perda de Tração'
-        )
-        )
+        # fig_generic.add_vline(
+        #     x=momento,
+        #     line_width=3,
+        #                     line_dash="dash",
+        #                     line_color="red",
+        #                     label=dict(
+        #                     text='Perda de Tração'
+        # )
+        # )
 
     
 
