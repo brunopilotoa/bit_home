@@ -47,9 +47,7 @@ if uploaded_file is not None:
         voo_ocorrencia = df_filtered_day
         momento = ""
         print(df.columns)
-    value = st.sidebar.selectbox(
-        "Selecione o Parametro Para Comparacao", options=(df.columns)
-    )
+   
 
     colu1, colu2, colu3, colu4 = st.columns(4, gap="medium")
 
@@ -267,6 +265,9 @@ if uploaded_file is not None:
     #  st.plotly_chart(fig_rpm)
     with col2:
         st.plotly_chart(fig)
+    value = st.selectbox(
+            "Selecione o Parametro Para Comparacao", options=(df.columns)
+        )
     st.plotly_chart(fig_generic)
         # st.plotly_chart(fig_altitude)
     #    st.write('Figura Base de Comparar')
