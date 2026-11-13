@@ -44,6 +44,7 @@ if uploaded_file is not None:
         voo_ocorrencia=df_filtered_day
         momento=''
         print(df.columns)
+    value=st.sidebar.selectbox('Selecione o Parametro Para Comparacao',options=(df.columns))
 
     colu1,colu2,colu3,colu4=st.columns(4,gap='medium')
 
@@ -223,7 +224,7 @@ if uploaded_file is not None:
                 label=dict(
                 text='Perda de Tração',
                 )
-        )
+        ),
         fig_generic.add_vline(
             x=momento,
             line_width=3,
@@ -250,7 +251,6 @@ if uploaded_file is not None:
         st.plotly_chart(fig)
         st.plotly_chart(fig_altitude)
     #    st.write('Figura Base de Comparar')
-    value=st.selectbox('Selecione o Parametro Para Comparacao',options=(df.columns))
     fig_generic = go.Figure()
     fig_generic.add_trace(
     go.Scatter(
