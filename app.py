@@ -232,6 +232,7 @@ if uploaded_file is not None:
                             label=dict(
                             text='Perda de Tração'
         )
+        )
 
     
 
