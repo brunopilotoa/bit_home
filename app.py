@@ -9,7 +9,7 @@ st.markdown('Utilize A Barra Lateral Para Navegação')
 st.sidebar.title('Insira o Arquivo Para Leitura')
 uploaded_file =st.sidebar.file_uploader(label='Insira o Arquivo CSV',type='csv')
 if uploaded_file is not None:
-    df=pd.read_csv('fdr_20261029_132558.csv',sep=',',header=1)
+    df=pd.read_csv(uploaded_file,sep=',',header=1)
 
 
     ## Sidebar
