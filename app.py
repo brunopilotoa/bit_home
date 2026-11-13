@@ -211,9 +211,9 @@ if uploaded_file is not None:
                 label=dict(
                 text='Perda de Tração',
                 ),
-                yaxis=dict(
-                    title='Velocidade IAS'
-                )
+                # yaxis=dict(
+                #     title='Velocidade IAS'
+                # )
             )
         fig_altitude.add_vline(
                 x=momento,
