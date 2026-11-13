@@ -137,7 +137,7 @@ if uploaded_file is not None:
     name='CHT 4',
     text=voo_ocorrencia['CHT4 Temp (deg F)'],
     )).update_layout(
-    title='Comparação Entre CHT 1 e CHT 4 Na Ocorrência',
+    title='Comparação Entre CHTs Na Ocorrência',
     yaxis=dict(
     title='Temperatura em Fº',
     ),
