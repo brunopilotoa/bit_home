@@ -121,6 +121,7 @@ if uploaded_file is not None:
     y=voo_ocorrencia['CHT2 Temp (deg F)'],
     mode='lines',
     name='CHT 2',
+    legend=True,
     text=voo_ocorrencia['CHT3 Temp (deg F)'],
     )).add_trace(
     go.Scatter(
@@ -223,16 +224,16 @@ if uploaded_file is not None:
                 label=dict(
                 text='Perda de Tração',
                 )
+        ),
+        fig_generic.add_vline(
+            x=momento,
+            line_width=3,
+                            line_dash="dash",
+                            line_color="red",
+                            label=dict(
+                            text='Perda de Tração'
         )
-        # fig_generic.add_vline(
-        #     x=momento,
-        #     line_width=3,
-        #                     line_dash="dash",
-        #                     line_color="red",
-        #                     label=dict(
-        #                     text='Perda de Tração'
-        # )
-        # )
+        )
 
     
 
