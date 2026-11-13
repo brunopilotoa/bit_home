@@ -177,6 +177,23 @@ if uploaded_file is not None:
 
     )
 
+    fig_generic = go.Figure()
+        fig_generic.add_trace(
+        go.Scatter(
+        x= voo_ocorrencia['UTC Time (hh:mm:ss)'],
+        y=voo_ocorrencia[value],
+        mode='lines',
+        name='CHT 1',)).update_layout(
+        title=f'Valores  de {value}',
+        yaxis=dict(
+        title=' ',
+        ),
+        xaxis=dict(
+        title='Tempo em Horário Z',
+        visible=False
+        ),
+        ).update_traces(showlegend=False)
+
     if red_line ==True:
         fig_manifold.add_vline(
         x=momento,
@@ -251,22 +268,7 @@ if uploaded_file is not None:
         st.plotly_chart(fig)
         st.plotly_chart(fig_altitude)
     #    st.write('Figura Base de Comparar')
-    fig_generic = go.Figure()
-    fig_generic.add_trace(
-    go.Scatter(
-    x= voo_ocorrencia['UTC Time (hh:mm:ss)'],
-    y=voo_ocorrencia[value],
-    mode='lines',
-    name='CHT 1',)).update_layout(
-    title=f'Valores  de {value}',
-    yaxis=dict(
-    title=' ',
-    ),
-    xaxis=dict(
-    title='Tempo em Horário Z',
-    visible=False
-    ),
-    ).update_traces(showlegend=False)
+    
     st.plotly_chart(fig_generic)
   
         # st.text('Fica Evidente Que a Variação do CHT é apenas Falha de Sensor')
