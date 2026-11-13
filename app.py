@@ -245,7 +245,7 @@ if uploaded_file is not None:
     #  st.plotly_chart(fig_rpm)
     with col2:
         st.plotly_chart(fig)
-    value = st.sidebar.selectbox(
+    value = st.selectbox(
         "Selecione o Parametro Para Comparacao", options=(df.columns)
     )
     fig_generic = go.Figure()
