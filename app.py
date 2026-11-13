@@ -223,7 +223,7 @@ if uploaded_file is not None:
             # )
         )
         (
-            fig_altitude.add_vline(
+        fig_altitude.add_vline(
                 x=momento,
                 line_width=3,
                 line_dash="dash",
@@ -245,31 +245,31 @@ if uploaded_file is not None:
     #  st.plotly_chart(fig_rpm)
     with col2:
         st.plotly_chart(fig)
-    value = st.selectbox(
-        "Selecione o Parametro Para Comparacao", options=(df.columns)
-    )
-    fig_generic = go.Figure()
-    fig_generic.add_trace(
-            go.Scatter(
-                x=voo_ocorrencia["UTC Time (hh:mm:ss)"],
-                y=voo_ocorrencia[value],
-                mode="lines",
-                name="CHT 1",
-            )
-        ).update_layout(
-            title=f"Valores  de {value}",
-            yaxis=dict(
-                title=" ",
-            ),
-            xaxis=dict(title="Tempo em Horário Z", visible=False),
-        ).update_traces(showlegend=False).add_vline(
-                x=momento,
-                line_width=3,
-                line_dash="dash",
-                line_color="red",
-                label=dict(text="Perda de Tração"),
-            )
-    st.plotly_chart(fig_generic)
+        value = st.selectbox(
+            "Selecione o Parametro Para Comparacao", options=(df.columns)
+        )
+        fig_generic = go.Figure()
+        fig_generic.add_trace(
+                go.Scatter(
+                    x=voo_ocorrencia["UTC Time (hh:mm:ss)"],
+                    y=voo_ocorrencia[value],
+                    mode="lines",
+                    name="CHT 1",
+                )
+            ).update_layout(
+                title=f"Valores  de {value}",
+                yaxis=dict(
+                    title=" ",
+                ),
+                xaxis=dict(title="Tempo em Horário Z", visible=False),
+            ).update_traces(showlegend=False).add_vline(
+                    x=momento,
+                    line_width=3,
+                    line_dash="dash",
+                    line_color="red",
+                    label=dict(text="Perda de Tração"),
+                )
+        st.plotly_chart(fig_generic)
         # st.plotly_chart(fig_altitude)
     #    st.write('Figura Base de Comparar')
 
