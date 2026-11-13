@@ -178,7 +178,7 @@ if uploaded_file is not None:
     )
 
     fig_generic = go.Figure()
-        fig_generic.add_trace(
+    fig_generic.add_trace(
         go.Scatter(
         x= voo_ocorrencia['UTC Time (hh:mm:ss)'],
         y=voo_ocorrencia[value],
